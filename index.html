@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="NeuroForge — structured cognitive practice with adaptive original exercises.">
+  <title>NeuroForge — Train with intention</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="NeuroForge home"><span class="brand-mark">N</span><span>neuroforge</span></a>
+      <div class="side-label">WORKSPACE</div>
+      <nav class="nav-list">
+        <button class="nav-link active" data-view="home"><span>◫</span> Overview</button>
+        <button class="nav-link" data-view="training"><span>◎</span> Training library</button>
+        <button class="nav-link" data-view="progress"><span>↗</span> My progress</button>
+      </nav>
+      <div class="sidebar-bottom"><div class="mini-avatar">NF</div><div><strong>Guest athlete</strong><small>Progress saved on this device</small></div></div>
+    </aside>
+    <main class="main-content">
+      <header class="topbar"><div class="mobile-brand"><span class="brand-mark">N</span> neuroforge</div><div class="topbar-right"><span class="status-dot"></span><span>Personal training space</span></div></header>
+      <section id="view-home" class="view active" aria-labelledby="welcome-title">
+        <div class="hero"><div><div class="eyebrow">YOUR DAILY PRACTICE</div><h1 id="welcome-title">Train your mind.<br><span>One session at a time.</span></h1><p>Build consistency through short, focused exercises that adapt as you practice.</p><button class="primary-button" id="start-daily">Start daily session <span>→</span></button></div><div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="core">N</div><i class="spark spark-a"></i><i class="spark spark-b"></i><i class="spark spark-c"></i></div></div>
+        <div class="section-heading"><div><div class="eyebrow">AT A GLANCE</div><h2>Your training snapshot</h2></div><span class="muted" id="today-label"></span></div>
+        <div class="stats-grid"><article class="stat-card"><span class="stat-icon violet">◷</span><span class="stat-label">Minutes practiced</span><strong id="stat-minutes">0</strong><small>This week</small></article><article class="stat-card"><span class="stat-icon mint">✓</span><span class="stat-label">Activities completed</span><strong id="stat-activities">0</strong><small>All time</small></article><article class="stat-card"><span class="stat-icon amber">✳</span><span class="stat-label">Current streak</span><strong id="stat-streak">0 days</strong><small>Keep a steady rhythm</small></article><article class="stat-card"><span class="stat-icon blue">◎</span><span class="stat-label">Average accuracy</span><strong id="stat-accuracy">—</strong><small>Across completed rounds</small></article></div>
+        <div class="section-heading"><div><div class="eyebrow">PICK UP WHERE YOU LEFT OFF</div><h2>Today's training</h2></div><button class="text-button" data-go="training">View all activities →</button></div>
+        <div class="activity-grid" id="home-activities"></div>
+        <p class="disclaimer">NeuroForge tracks performance in its own exercises. These scores are not clinical assessments or measures of intelligence.</p>
+      </section>
+      <section id="view-training" class="view" aria-labelledby="training-title"><div class="page-intro"><div class="eyebrow">FIND YOUR NEXT CHALLENGE</div><h1 id="training-title">Training library</h1><p>Five original activities across memory, attention, speed, reasoning, and flexibility.</p></div><div class="filter-row"><button class="filter-chip selected" data-filter="all">All activities</button><button class="filter-chip" data-filter="Memory">Memory</button><button class="filter-chip" data-filter="Attention">Attention</button><button class="filter-chip" data-filter="Speed">Speed</button><button class="filter-chip" data-filter="Reasoning">Reasoning</button></div><div class="activity-grid library-grid" id="library-activities"></div></section>
+      <section id="view-progress" class="view" aria-labelledby="progress-title"><div class="page-intro"><div class="eyebrow">CONSISTENCY OVER TIME</div><h1 id="progress-title">My progress</h1><p>Review your activity history and how you perform in each exercise.</p></div><div class="progress-layout"><article class="panel chart-panel"><div class="panel-heading"><div><h3>Recent practice</h3><p>Minutes practiced per day · last 7 days</p></div></div><div id="weekly-chart" class="bar-chart" role="img" aria-label="Weekly practice chart"></div></article><article class="panel"><div class="panel-heading"><div><h3>Activity breakdown</h3><p>Your completed rounds</p></div></div><div id="breakdown"></div></article></div><article class="panel history-panel"><div class="panel-heading"><div><h3>Recent sessions</h3><p>Your latest completed activities</p></div><button class="text-button" id="clear-history">Clear local history</button></div><div id="history-list"></div></article></section>
+      <section id="view-game" class="view" aria-labelledby="game-title"><button class="back-button" id="back-library">← Back to training</button><div class="game-header"><div><div class="eyebrow" id="game-category">TRAINING ACTIVITY</div><h1 id="game-title">Activity</h1><p id="game-description"></p></div><div class="game-level">LEVEL <strong id="game-level">1</strong></div></div><div class="game-panel"><div class="game-meta"><span id="round-label">ROUND 1</span><span id="game-feedback" aria-live="polite">Ready when you are</span></div><div id="game-stage" class="game-stage"></div><div class="game-controls"><button class="secondary-button" id="game-start">Start round</button><button class="primary-button" id="game-submit" disabled>Submit answer</button></div></div><div class="game-tip" id="game-tip">Take your time. Consistent practice matters more than a perfect score.</div></section>
+      <section id="view-summary" class="view" aria-labelledby="summary-title"><div class="summary-card"><div class="success-mark">✓</div><div class="eyebrow">ROUND COMPLETE</div><h1 id="summary-title">Good work.</h1><p id="summary-message">Your session has been recorded on this device.</p><div class="summary-stats" id="summary-stats"></div><button class="primary-button" id="summary-again">Try another activity →</button></div></section>
+      <footer class="footer">NEUROFORGE <span>·</span> Practice with purpose</footer>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

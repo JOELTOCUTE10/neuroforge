@@ -1,0 +1,9 @@
+{
+  "name": "NeuroForge",
+  "short_name": "NeuroForge",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1220",
+  "theme_color": "#101827",
+  "description": "Original adaptive cognitive training activities."
+}

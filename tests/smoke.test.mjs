@@ -12,7 +12,7 @@ test('database migration enables owner-scoped row-level security',()=>{const sql
 test('privilege migration removes anonymous access from application tables',()=>{const sql=read('../supabase/migrations/202611050002_secure_neuroforge_privileges.sql');assert.match(sql,/revoke all privileges on table public\.profiles from anon, authenticated/i);assert.match(sql,/revoke all privileges on table public\.training_sessions from anon, authenticated/i);assert.match(sql,/grant select, insert, update on table public\.profiles to authenticated/i);assert.match(sql,/grant select, insert, delete on table public\.training_sessions to authenticated/i);});
 test('public client config uses a publishable key and contains no secrets',()=>{const c=read('../supabase-config.js');assert.match(c,/supabaseUrl:\s*'https:\/\/[a-z0-9]+\.supabase\.co'/);assert.match(c,/supabasePublishableKey:\s*'sb_publishable_[A-Za-z0-9_-]+'/);assert.doesNotMatch(c,/service_role|sb_secret_|eyJ[a-zA-Z0-9_-]{20,}/i);});
 test('signup confirmation redirects to the app subdirectory',()=>{assert.match(app,/emailRedirectTo:new URL\('\.\/',location\.href\)\.href/);});
-test('PWA manifest and service worker include application assets',()=>{assert.equal(manifest.name,'NeuroForge');assert.ok(existsSync(new URL('../service-worker.js',import.meta.url)));const sw=read('../service-worker.js');assert.match(sw,/game-fixes\.js/);assert.match(sw,/neuroforge-static-v5/);});
+test('PWA manifest and service worker include application assets',()=>{assert.equal(manifest.name,'NeuroForge');assert.ok(existsSync(new URL('../service-worker.js',import.meta.url)));const sw=read('../service-worker.js');assert.match(sw,/game-fixes\.js/);assert.match(sw,/neuroforge-static-v6/);});
 test('responsive and reduced-motion styles exist',()=>{assert.match(css,/@media\(max-width:720px\)/);assert.match(css,/prefers-reduced-motion:reduce/);});
 
 test('dashboard shows live daily-goal progress from the saved preference',()=>{assert.ok(html.includes('today-goal-label'));assert.ok(html.includes('today-goal-fill'));assert.ok(app.includes('todaySeconds'));assert.ok(app.includes('S.profile.goal'));});
@@ -22,3 +22,11 @@ test('adaptive difficulty advances from the last level and supports all ten leve
 test('multi-select answers can be removed after a misclick',()=>{assert.ok(app.includes('D.sel=D.sel.filter'));assert.ok(app.includes('aria-pressed'));});
 
 test('initial session restore does not merge an unassigned cache into another account',()=>{assert.ok(app.includes('function switchDataSpace(nextUser,carryGuest=false)'));assert.ok(app.includes('switchDataSpace(nextUser,!user&&!!nextUser)'));assert.ok(app.includes('else if(nextUser){S={version:2,sessions:[],profile:{name:\'Guest athlete\',goal:10}};}'));});
+
+test('progressive overload has three activity-specific stages inside each level',()=>{assert.match(app,/function overloadFor\(id\)/);assert.match(app,/Math\.min\(2,wins\)/);assert.match(app,/challengeStage=overloadFor\(which\)/);assert.match(app,/progressionLabel\(a\.id\)/);});
+test('overload stages change real exercise demands',()=>{for(const token of ['challengeStage);','challengeStage*65','challengeStage*130','challengeStage*180','challengeStage*200','challengeStage*5','challengeStage*4'])assert.ok(app.includes(token),'Missing overload control: '+token);});
+test('session history records the challenge stage used',()=>{assert.match(app,/metrics:\{roundScores:scores\.map\(x=>Math\.round\(x\*100\)\),challengeStage/);});
+test('progression policy is documented',()=>{const readme=read('../README.md');assert.match(readme,/three progressive-overload stages/i);assert.match(readme,/activity-specific/i);});
+
+test('Stroop and Rule Shift also gain harder within-level stages',()=>{assert.match(app,/length:1\+challengeStage/);assert.match(app,/challengeStage===0\?\(round\+level\)%2===0:rint\(0,1\)===0/);});
+test('progressive-overload release invalidates the old offline cache',()=>{assert.match(read('../service-worker.js'),/neuroforge-static-v6/);assert.match(read('../index.html'),/MVP 0\.4/);});

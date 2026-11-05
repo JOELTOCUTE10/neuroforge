@@ -26,7 +26,8 @@ Open `http://localhost:8000/`.
 ## Features
 
 - Five-round sessions with activity-specific scoring and round-completion checks.
-- Difficulty levels from 1–10. The next level advances after a three-session average of at least 88%, decreases below 50%, and otherwise stays steady.
+- Ten independently adaptive levels for every activity, plus three progressive-overload stages within each level. Consecutive sessions at 80%+ raise the next session's challenge stage; weaker performance removes the extra stage. The next full level advances after a three-session average of at least 88%, decreases below 50%, and otherwise stays steady.
+- Progressive overload changes actual exercise demands: memory load, study/exposure time, grid size, item count, study time, visual interference, rule unpredictability, arithmetic complexity, and reaction scoring thresholds. The adjustments are activity-specific rather than shared across the whole app.
 - Balanced, memory, focus, speed, and flexibility plans.
 - A daily practice-goal meter based on completed minutes and the goal selected in Settings.
 - Weekly practice charts, streaks, skill-area breakdowns, session history, accuracy, and personal-best tracking.
@@ -63,7 +64,7 @@ node --test tests/smoke.test.mjs
 
 ## Limitations and evidence
 
-Scores describe performance on NeuroForge activities. They are not IQ scores, clinical assessments, diagnoses, or evidence that training transfers to everyday cognition. Adaptive levels are product difficulty controls, not validated measures of cognitive ability.
+Scores describe performance on NeuroForge activities. They are not IQ scores, clinical assessments, diagnoses, or evidence that training transfers to everyday cognition. Adaptive levels and overload stages are product difficulty controls, not validated measures of cognitive ability. Each activity progresses independently; overload stages are temporary within-level challenge increments, not a claim of clinical improvement.
 
 ## License
 

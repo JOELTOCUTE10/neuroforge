@@ -1,14 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
-const read = (path) => readFileSync(new URL(path, import.meta.url), 'utf8');
-const html=read('../index.html');
-const app=read('../app.js');
-const fixes=read('../game-fixes.js');
-const css=read('../styles.css');
+const read=(path)=>readFileSync(new URL(path,import.meta.url),'utf8');
+const html=read('../index.html'),app=read('../app.js'),fixes=read('../game-fixes.js'),css=read('../styles.css');
 const manifest=JSON.parse(read('../manifest.webmanifest'));
 test('all primary application views exist',()=>{for(const v of ['home','training','plans','progress','settings','game','summary'])assert.match(html,new RegExp('id="view-'+v+'"'));});
-test('the twelve original activity IDs are registered',()=>{const ids=[...app.matchAll(/\['([a-z]+)','/g)].map(m=>m[1]);assert.deepEqual(ids,['sequence','pattern','words','spatial','nback','focus','search','stroop','reaction','math','switch','logic']);});
+test('the twelve original activity IDs are registered',()=>{const table=app.split('const A=[')[1].split('const PLANS=')[0];const ids=[...table.matchAll(/\['([a-z]+)','/g)].map(m=>m[1]);assert.deepEqual(ids,['sequence','pattern','words','spatial','nback','focus','search','stroop','reaction','math','switch','logic']);});
 test('all twelve activity engines are wired to the score switch',()=>{for(const id of ['sequence','pattern','words','spatial','nback','focus','search','stroop','reaction','math','switch','logic'])assert.ok(app.includes("case'"+id+"'"),'Missing score route: '+id);});
 test('input fix is loaded after the main app and supports repeated choices',()=>{assert.match(html,/src="game-fixes\.js" defer/);assert.match(fixes,/function seqRound/);assert.match(fixes,/function spatialRound/);assert.doesNotMatch(fixes,/b\.disabled\s*=\s*true/);});
 test('database migration enables owner-scoped row-level security',()=>{const sql=read('../supabase/migrations/202611050001_neuroforge_core.sql');assert.match(sql,/enable row level security/gi);assert.match(sql,/auth\.uid\(\)/g);assert.match(sql,/with check/gi);});

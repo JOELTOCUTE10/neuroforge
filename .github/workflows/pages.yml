@@ -1,15 +1,19 @@
 name: Deploy NeuroForge to GitHub Pages
+
 on:
   push:
     branches: [main]
   workflow_dispatch:
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 concurrency:
   group: pages
   cancel-in-progress: true
+
 jobs:
   deploy:
     environment:
@@ -19,14 +23,29 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check JavaScript syntax
+        run: |
+          node --check app.js
+          node --check game-fixes.js
+          node --check service-worker.js
+
       - name: Run smoke tests
-        run: node tests/smoke.test.mjs
+        run: node --test tests/smoke.test.mjs
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
+
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
+
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4

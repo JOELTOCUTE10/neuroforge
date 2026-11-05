@@ -1,0 +1,13 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync, existsSync } from 'node:fs';
+const html=readFileSync(new URL('../index.html',import.meta.url),'utf8');
+const app=readFileSync(new URL('../app.js',import.meta.url),'utf8');
+const css=readFileSync(new URL('../styles.css',import.meta.url),'utf8');
+const manifest=JSON.parse(readFileSync(new URL('../manifest.webmanifest',import.meta.url),'utf8'));
+test('primary views are present',()=>{for(const v of ['home','training','plans','progress','settings','game','summary'])assert.match(html,new RegExp('id="view-'+v+'"'));});
+test('the twelve original activity IDs are registered',()=>{for(const id of ['sequence','pattern','words','spatial','nback','focus','search','stroop','reaction','math','switch','logic'])assert.ok(app.includes("['"+id+"'"),'Missing activity '+id);});
+test('database schema uses row-level security and owner checks',()=>{const sql=readFileSync(new URL('../supabase/migrations/202611050001_neuroforge_core.sql',import.meta.url),'utf8');assert.match(sql,/enable row level security/gi);assert.match(sql,/auth\.uid\(\)/g);assert.match(sql,/with check/gi);});
+test('cloud config example contains no secret',()=>{const c=readFileSync(new URL('../supabase-config.example.js',import.meta.url),'utf8');assert.match(c,/supabasePublishableKey: ''/);assert.doesNotMatch(c,/service_role|sb_secret_/i);});
+test('PWA files exist',()=>{assert.equal(manifest.name,'NeuroForge');assert.ok(existsSync(new URL('../service-worker.js',import.meta.url)));assert.ok(existsSync(new URL('../favicon.svg',import.meta.url)));});
+test('responsive and reduced-motion styles exist',()=>{assert.match(css,/@media\(max-width:720px\)/);assert.match(css,/prefers-reduced-motion:reduce/);});

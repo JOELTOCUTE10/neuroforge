@@ -1,12 +1,12 @@
 # NeuroForge
 
-An original, local-first cognitive-practice platform with 12 interactive activities, adaptive challenge levels, guided plans, progress analytics, exportable history, and optional Supabase accounts and cross-device session sync.
+An original, local-first cognitive-practice platform with 12 interactive activities, adaptive challenge levels, guided plans, progress analytics, exportable history, and optional Supabase accounts with cross-device session sync.
 
-NeuroForge is independent and does not copy BrainHQ's proprietary source code, branding, interface assets, or exercises.
+NeuroForge is independent. It does not copy BrainHQ's proprietary source code, branding, interface assets, or exercises.
 
 ## Run locally
 
-Serve the repository root with a static HTTP server, then open the local address it prints. For example:
+Serve the repository root with a static HTTP server, then open the address it prints. For example:
 
 ```bash
 python -m http.server 8000
@@ -25,24 +25,27 @@ Open `http://localhost:8000/`.
 
 ## Features
 
-- Five-round sessions and activity-specific scoring.
-- Difficulty levels from 1–10 based on recent results.
+- Five-round sessions with activity-specific scoring and round-completion checks.
+- Difficulty levels from 1–10. The next level advances after a three-session average of at least 88%, decreases below 50%, and otherwise stays steady.
 - Balanced, memory, focus, speed, and flexibility plans.
-- Weekly charts, session history, accuracy and personal-best tracking.
+- A daily practice-goal meter based on completed minutes and the goal selected in Settings.
+- Weekly practice charts, streaks, skill-area breakdowns, session history, accuracy, and personal-best tracking.
+- Correctable multi-select answers for Pattern Matrix, Word Recall, and Focus Grid.
 - Local-first storage, JSON export, and an optional offline PWA shell.
 - Optional email/password accounts and per-user cloud session synchronization.
+- Guest and signed-in account histories use separate browser storage spaces. Switching or signing out does not display another account's cached history.
 - Responsive layout and reduced-motion support.
 
 ## Supabase cloud accounts and synchronization
 
-The public GitHub Pages build is configured to use the NeuroForge Supabase project in US East (Ohio). The browser configuration in `supabase-config.js` contains only the project URL and a publishable client key. Publishable keys are intended for browser use; never place a Supabase secret or service-role key in this repository.
+The public GitHub Pages build is configured to use the NeuroForge Supabase project in US East (Ohio). `supabase-config.js` contains only the project URL and a publishable client key. Publishable keys are intended for browser use; never place a Supabase secret or service-role key in this repository.
 
 The database migrations are stored in `supabase/migrations/` and must be applied in order to a fresh project:
 
 1. `202611050001_neuroforge_core.sql` creates `profiles` and `training_sessions`, enables row-level security, and defines owner-scoped policies.
 2. `202611050002_secure_neuroforge_privileges.sql` removes broad default grants from these application tables and gives authenticated users only the operations the app needs.
 
-Both application tables have row-level security enabled. Session rows are scoped to `auth.uid()`. The anonymous database role has no table privileges on these two tables. The app currently synchronizes completed training sessions; guest sessions created before signing in are not automatically uploaded to a new account.
+Both application tables have row-level security enabled. Session rows are scoped to `auth.uid()`. The anonymous database role has no table privileges on these two tables. The app synchronizes completed training sessions; guest sessions created before sign-in are not automatically uploaded to Supabase. They remain in the browser's separate local data space.
 
 Email confirmation may be required before a new account can sign in. Local development URLs must be added to Supabase Auth's allowed redirect URLs if you test signup on localhost.
 
@@ -55,12 +58,12 @@ The repository includes a GitHub Actions workflow at `.github/workflows/pages.ym
 Run:
 
 ```bash
-node tests/smoke.test.mjs
+node --test tests/smoke.test.mjs
 ```
 
 ## Limitations and evidence
 
-Scores describe performance on NeuroForge activities. They are not IQ scores, clinical assessments, diagnoses, or evidence that training transfers to every-day cognition. Adaptive levels are product difficulty controls, not validated measures of cognitive ability.
+Scores describe performance on NeuroForge activities. They are not IQ scores, clinical assessments, diagnoses, or evidence that training transfers to everyday cognition. Adaptive levels are product difficulty controls, not validated measures of cognitive ability.
 
 ## License
 

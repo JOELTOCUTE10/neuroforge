@@ -79,6 +79,10 @@ The course library and level map provide structured practice and personal histor
 Scores describe performance on NeuroForge activities. They are not IQ scores, clinical assessments, diagnoses, or evidence that training transfers to everyday cognition. NeuroForge has not been clinically validated. The adaptive system adjusts app difficulty from activity results; it does not measure general intelligence or establish real-world cognitive improvement. Cloud sign-in and synchronization still require real-browser testing against the configured Supabase Auth redirect settings.
 
 
+## Cognitive development blueprint
+
+See [docs/COGNITIVE_DEVELOPMENT_BLUEPRINT.md](docs/COGNITIVE_DEVELOPMENT_BLUEPRINT.md) for the full product and scientific architecture, and [docs/SCIENTIFIC_EVIDENCE_REGISTER.md](docs/SCIENTIFIC_EVIDENCE_REGISTER.md) for sources, findings, limitations and product implications. The blueprint separates established cognitive-ability frameworks from executive control, applied thinking skills, learning methods and cognitive-health support. It prioritizes measurement integrity and transfer testing before broad cognitive-improvement claims.
+
 ## Feature-parity development roadmap
 
 See [docs/FEATURE_PARITY_ROADMAP.md](docs/FEATURE_PARITY_ROADMAP.md) for the original 30-plus-activity target, six-domain coverage plan, and release quality gates. The current build is an early foundation, not a complete substitute for any established cognitive-training service.

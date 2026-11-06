@@ -1,5 +1,5 @@
-const CACHE='neuroforge-static-v6';
-const CORE=['./','./index.html','./styles.css','./app.js','./game-fixes.js','./supabase-config.js','./manifest.webmanifest','./favicon.svg'];
+const CACHE='neuroforge-static-v7';
+const CORE=['./','./index.html','./styles.css','./training-engine.js','./app.js','./game-fixes.js','./supabase-config.js','./manifest.webmanifest','./favicon.svg'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE))));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key))))));
 self.addEventListener('fetch',event=>{

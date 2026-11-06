@@ -46,3 +46,13 @@
 .spatial-sequence{font-size:28px;letter-spacing:8px}
 @media(max-width:900px){.custom-activity-list{grid-template-columns:1fr}.extra-progress-grid{grid-template-columns:1fr}}
 @media(max-width:520px){.dual-grid{grid-template-columns:repeat(4,minmax(42px,1fr));gap:6px}.dual-choice{min-height:50px}.rotation-options{grid-template-columns:repeat(2,minmax(90px,1fr))}.custom-plan-actions{align-items:stretch;flex-direction:column}.custom-plan-actions .button{width:100%}.trend-bars{gap:4px}.trend-column small{font-size:6px}}
+
+/* Route Map Recall */
+.route-grid{display:grid;grid-template-columns:repeat(var(--route-size,4),minmax(0,1fr));gap:8px;width:min(100%,360px);margin:16px auto}
+.route-cell{display:grid;place-items:center;aspect-ratio:1;min-width:0;border:1px solid #40516d;border-radius:10px;background:#1c2b42;color:#e7eaf4;font-size:17px;font-weight:800}
+.route-cell.active{background:#665c9d;border-color:#b2a5ff;color:#fff;box-shadow:inset 0 0 0 1px #b2a5ff}
+.route-cell.selected{background:#26785e;border-color:#80d9b2;color:white}
+.route-cell:disabled{opacity:1}
+.tone-prompt{max-width:650px;margin:0 auto;padding:20px;border:1px solid #34465f;border-radius:13px;background:#142238}
+.tone-prompt small{display:block;color:#aebbd0;font-size:14px;line-height:1.55;margin-bottom:12px}
+.tone-prompt strong{display:block;font-size:20px;line-height:1.45}

@@ -1,17 +1,19 @@
 # NeuroForge
 
-An original, local-first cognitive-practice platform with 14 interactive activities, independently adaptive difficulty, guided and custom sessions, progress insights, exportable history, and optional Supabase accounts with cross-device session sync.
+An original, local-first cognitive-practice platform with 16 interactive activities, independently adaptive difficulty, guided and custom sessions, progress insights, exportable history, and optional Supabase accounts with cross-device session sync.
 
 NeuroForge is independent. It does not copy BrainHQ's proprietary source code, branding, interface assets, or exercises.
 
-## Activities
+## Six training domains and current activities
 
-- **Memory:** Sequence Recall, Pattern Matrix, Word Recall, Working Memory 2-Back
-- **Spatial:** Direction Span, Mental Rotation
+- **Memory:** Sequence Recall, Pattern Matrix, Word Recall, Working Memory N-Back
 - **Attention:** Focus Grid, Visual Search, Color Conflict, Dual Focus
-- **Speed:** Reaction Lab, Number Sprint
-- **Flexibility:** Rule Shift
-- **Reasoning:** Pattern Logic
+- **Brain Speed:** Reaction Lab, Number Sprint
+- **People Skills:** Context Signals
+- **Intelligence:** Rule Shift, Pattern Logic
+- **Navigation:** Direction Span, Mental Rotation, Route Map Recall
+
+The library uses six canonical domains. Older saved sessions are grouped by their activity ID so earlier Spatial, Speed, Reasoning, and Flexibility records still appear under the updated domain labels.
 
 ## Training and progression
 
@@ -30,7 +32,7 @@ These are product difficulty rules, not validated cognitive measurements. They u
 ## Features
 
 - Five-round sessions with activity-specific scoring and completion checks.
-- Fourteen original activities spanning memory, spatial reasoning, attention, speed, flexibility, and reasoning, including variable-lag N-back, Dual Focus, and Mental Rotation.
+- Sixteen original activities across Memory, Attention, Brain Speed, People Skills, Intelligence, and Navigation, including variable-lag N-Back, Dual Focus, Mental Rotation, Context Signals, and Route Map Recall.
 - Balanced, memory, focus, speed, and flexibility plans, plus a custom session builder for one to eight activities.
 - Activity search and skill-area filters.
 - Daily practice goal, weekly minutes chart, streak, total sessions, and average accuracy.
@@ -72,3 +74,7 @@ Run: node --test tests/smoke.test.mjs
 
 Scores describe performance on NeuroForge activities. They are not IQ scores, clinical assessments, diagnoses, or evidence that training transfers to everyday cognition. NeuroForge has not been clinically validated. The adaptive system adjusts app difficulty from activity results; it does not measure general intelligence or establish real-world cognitive improvement. Cloud sign-in and synchronization still require real-browser testing against the configured Supabase Auth redirect settings.
 
+
+## Feature-parity development roadmap
+
+See [docs/FEATURE_PARITY_ROADMAP.md](docs/FEATURE_PARITY_ROADMAP.md) for the original 30-plus-activity target, six-domain coverage plan, and release quality gates. The current build is an early foundation, not a complete substitute for any established cognitive-training service.

@@ -5,6 +5,7 @@ import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
 const progression = require('../training-engine.js');
+const catalog = require('../exercise-catalog.js');
 const read = (path) => readFileSync(new URL(path, import.meta.url), 'utf8');
 const html = read('../index.html');
 const app = read('../app.js');
@@ -12,7 +13,7 @@ const fixes = read('../game-fixes.js');
 const css = read('../styles.css');
 const sw = read('../service-worker.js');
 const manifest = JSON.parse(read('../manifest.webmanifest'));
-const ids = ['sequence','pattern','words','spatial','nback','focus','search','stroop','reaction','math','switch','logic','dual','rotate'];
+const ids = ['sequence','pattern','words','spatial','nback','focus','search','stroop','reaction','math','switch','logic','dual','rotate','tone','route'];
 const session = (level, accuracy, stage = 0, completedAt = 1) => ({
   id: 's-' + completedAt, level, accuracy, completedAt,
   metrics: { challengeStage: stage }
@@ -24,17 +25,28 @@ test('all primary application views exist', () => {
   }
 });
 
-test('fourteen original activity IDs are registered', () => {
-  const table = app.split('const A=[')[1].split('].map')[0];
-  const found = [...table.matchAll(/\['([a-z]+)'/g)].map(match => match[1]);
-  assert.deepEqual(found, ids);
+test('six canonical training domains and sixteen original activities are registered', () => {
+  assert.deepEqual(catalog.domains.map(domain => domain.name), ['Memory','Attention','Brain Speed','People Skills','Intelligence','Navigation']);
+  assert.deepEqual(catalog.activities.map(activity => activity.id), ids);
+  assert.equal(catalog.areaForSession({activityId:'spatial',area:'Spatial'}), 'Navigation');
+  assert.equal(catalog.areaForSession({activityId:'reaction',area:'Speed'}), 'Brain Speed');
 });
 
-test('all fourteen activities are connected to a round engine', () => {
+test('all sixteen activities are connected to a round engine', () => {
   for (const id of ids) {
     assert.ok(app.includes(id + ':'), 'Missing route for ' + id);
     assert.ok(app.includes("case'" + id + "'") || ['rotate','dual'].includes(id), 'Missing scoring route for ' + id);
   }
+});
+
+test('People Skills and Navigation activities have dedicated playable and scoring routes', () => {
+  assert.match(app, /function toneRound\(/);
+  assert.match(app, /function routeRound\(/);
+  assert.match(app, /case'tone':/);
+  assert.match(app, /case'route':/);
+  assert.ok(app.includes('TONE_ITEMS'));
+  assert.ok(css.includes('.route-grid'));
+  assert.ok(css.includes('.tone-prompt'));
 });
 
 test('progression engine starts new activities at Level 1, Stage 1/5', () => {
@@ -209,9 +221,11 @@ test('public browser config uses a publishable key and contains no secrets', () 
 });
 
 test('training engine loads before app and is cached offline', () => {
-  assert.ok(html.indexOf('training-engine.js') < html.indexOf('app.js'));
-  assert.match(sw, /neuroforge-static-v7/);
+  assert.ok(html.indexOf('training-engine.js') < html.indexOf('exercise-catalog.js'));
+  assert.ok(html.indexOf('exercise-catalog.js') < html.indexOf('app.js'));
+  assert.match(sw, /neuroforge-static-v8/);
   assert.match(sw, /training-engine\.js/);
+  assert.match(sw, /exercise-catalog\.js/);
 });
 
 test('PWA manifest and mobile accessibility features exist', () => {

@@ -3,8 +3,8 @@
  * These overrides preserve the five-stage adaptive challenge settings.
  */
 function seqRound(){
-  const n=Math.min(10,3+Math.floor((level-1)/2)+Math.floor((round-1)/2)+challengeStage);
-  const active=D,exposure=Math.max(220,460-challengeStage*35-Math.floor((level-1)/2)*12);
+  const n=Math.min(10,3+Math.floor((runDifficulty-1)/2)+Math.floor((round-1)/2)+challengeStage);
+  const active=D,exposure=Math.max(220,460-challengeStage*35-Math.floor((runDifficulty-1)/2)*12);
   active.seq=Array.from({length:n},()=>rint(0,8));active.sel=[];active.ready=false;
   $('#game-instructions').textContent='Memorize the highlighted tiles, then repeat the sequence in order.';
   $('#game-stage').innerHTML='<div class="tile-grid">'+Array.from({length:9},(_,i)=>'<button class="tile" disabled data-t="'+i+'" aria-label="Tile '+(i+1)+'"></button>').join('')+'</div>';
@@ -24,8 +24,8 @@ function seqRound(){
   }));
 }
 function spatialRound(){
-  const n=Math.min(10,3+Math.floor(level/2)+challengeStage),active=D;
-  const exposure=Math.max(650,1600-(level-1)*55-challengeStage*120);
+  const n=Math.min(10,3+Math.floor(runDifficulty/2)+challengeStage),active=D;
+  const exposure=Math.max(650,1600-(runDifficulty-1)*55-challengeStage*120);
   active.seq=Array.from({length:n},()=>DIRS[rint(0,3)]);active.sel=[];active.ready=false;
   $('#game-instructions').textContent='Remember this direction path, then reproduce it with the arrow buttons.';
   $('#game-stage').innerHTML='<div class="instruction"><strong class="spatial-sequence">'+active.seq.join('　')+'</strong></div>';

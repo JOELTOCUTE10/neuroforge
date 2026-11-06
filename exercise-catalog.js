@@ -28,7 +28,20 @@
     ['dual','Dual Focus','Attention','◉',3,'Track two symbol-and-color targets in a busy grid.','Hold both target rules in mind as you scan.'],
     ['rotate','Mental Rotation','Navigation','⟳',3,'Recognize a shape after it is rotated.','Compare the relationship between the parts, not their position.'],
     ['tone','Context Signals','People Skills','◎',3,'Identify the communication tone that best fits a fictional conversation and its context.','Read both the situation and the message before choosing.'],
-    ['route','Route Map Recall','Navigation','⌖',3,'Study a short path on a grid, then reproduce its locations in order.','Remember the path as a connected route, not a collection of separate squares.']
+    ['route','Route Map Recall','Navigation','⌖',3,'Study a short path on a grid, then reproduce its locations in order.','Remember the path as a connected route, not a collection of separate squares.'],
+    ['tones','Tone Sequence','Memory','♫',2,'Listen to a short sequence of distinct tones and reproduce their order.','Listen for the pitch pattern, then replay it from memory.'],
+    ['scene','Scene Snapshot','Memory','▤',2,'Study a small illustrated scene and recall where an object appeared.','Build a mental picture of the object locations.'],
+    ['tasks','Task Recall','Memory','☷',2,'Remember a short schedule and retrieve the right item when asked.','Link each task to its time slot.'],
+    ['peripheral','Peripheral Watch','Attention','⊕',2,'Keep a central focus while noticing brief signals around the edge.','Keep your eyes near the center and notice the side signal.'],
+    ['compare','Quick Compare','Brain Speed','⇆',2,'Decide quickly whether two changing symbol strings match.','Compare the whole pattern before choosing.'],
+    ['pitch','Pitch Match','Brain Speed','♪',2,'Compare two brief synthesized tones and decide whether they match.','Listen for a small change in pitch.'],
+    ['sweep','Rapid Sweep','Brain Speed','▥',2,'Scan a briefly shown symbol field and report the target count.','Use a steady scan rather than jumping around.'],
+    ['profiles','Profile Recall','People Skills','♙',2,'Remember fictional people and a detail associated with each person.','Connect each person with one clear detail.'],
+    ['expressions','Expression Cues','People Skills','☻',2,'Match simple illustrated expressions to a clearly described situation.','Treat the expression as a clue, not proof of what someone thinks.'],
+    ['conversations','Conversation Clues','People Skills','☏',2,'Recall which speaker shared a particular detail in a short dialogue.','Keep track of who said each detail.'],
+    ['weave','Number Weave','Intelligence','∑',2,'Find the missing value in a sequence that combines two simple rules.','Check whether the sequence alternates between rules.'],
+    ['logiclab','Logic Lab','Intelligence','⊢',2,'Infer a simple transformation from examples and apply it to a new input.','Look for the rule that explains every example.'],
+    ['landmark','Landmark Compass','Navigation','⌖',2,'Use a small map and a changing orientation to identify a landmark direction.','Separate the map direction from the direction you are facing.']
   ];
   const activities=rows.map(x=>({id:x[0],name:x[1],area:x[2],symbol:x[3],minutes:x[4],description:x[5],tip:x[6]}));
   const byId=Object.fromEntries(activities.map(a=>[a.id,a]));

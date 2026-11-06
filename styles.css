@@ -56,3 +56,132 @@
 .tone-prompt{max-width:650px;margin:0 auto;padding:20px;border:1px solid #34465f;border-radius:13px;background:#142238}
 .tone-prompt small{display:block;color:#aebbd0;font-size:14px;line-height:1.55;margin-bottom:12px}
 .tone-prompt strong{display:block;font-size:20px;line-height:1.45}
+
+/* NeuroForge 0.7: brighter, calmer training interface. */
+:root{font-family:Inter,ui-sans-serif,system-ui,sans-serif;color:#1d2b3c;background:#f4f7fb;--muted:#617287}
+body{background:#f4f7fb;color:#1d2b3c}
+.sidebar{background:#fff;border-right:1px solid #e1e8f0;box-shadow:2px 0 14px #1b355008}
+.brand{color:#1e2b3c}
+.brand-mark{background:linear-gradient(140deg,#557ce9,#35a8a1)}
+.nav-caption,.eyebrow{color:#6e8095}
+.nav-item{color:#617287}
+.nav-item:hover,.nav-item.active{color:#1e3760;background:#eaf1fc}
+.sidebar-user{border-top-color:#e5ebf2}
+.avatar{background:#e5edfb;color:#35578c}
+.main{color:#1d2b3c}
+.topbar{border-bottom-color:#e1e8f0}
+.topbar-meta{color:#617287}
+.account-button{background:#fff;border-color:#dce5ef;color:#263a51;box-shadow:0 2px 8px #1c35500a}
+.mobile-brand{color:#23364d}
+.view{color:#1d2b3c}
+.hero{border-color:#dae5f0;background:linear-gradient(112deg,#fff 0%,#edf4ff 57%,#e6f6f2 100%);box-shadow:0 12px 32px #263c570a}
+.hero h1{color:#1d3045}
+.hero h1 span{color:#3473bd}
+.hero p,.page-intro p,.game-title-row p{color:#62748a}
+.hero-note{color:#5d7189}
+.hero-visual .neuro-core{background:linear-gradient(145deg,#4f82df,#43afa7);box-shadow:0 0 0 14px #498ed015,0 15px 35px #3b7c9a24}
+.button{border-radius:10px;font-size:12px}
+.button.primary{background:#2f69c9;color:#fff;box-shadow:0 3px 9px #2f69c926}
+.button.secondary{background:#fff;border:1px solid #d8e2ed;color:#29415e}
+.section-head h2,.page-intro h1{color:#203247}
+.muted,.fine-print,.history-row small,.table-sub{color:#687c92}
+.metric-card,.panel,.activity-card,.plan-card,.game-panel,.summary-wrap{background:#fff;border-color:#e1e8f0;color:#213247;box-shadow:0 7px 24px #263c5708}
+.metric-card strong,.activity-card h3,.plan-card h2,.panel h3{color:#20334a}
+.metric-card small,.activity-card p,.plan-card p,.panel-heading p{color:#6c7e92}
+.metric-label,.activity-category{color:#6b7f95}
+.metric-icon{background:#eef3fb}
+.daily-goal-track,.break-track,.progress-track,.game-progress .progress-track{background:#e9eff6}
+.daily-goal-fill,.break-fill,.progress-fill{background:linear-gradient(90deg,#477cdb,#35aa9b)}
+.notice{background:#eff6fb;border-color:#dbe9f2;color:#486078}
+.notice p{color:#556d83}
+.page-intro .eyebrow{color:#4a78ad}
+.library-toolbar .text-input,.text-input,select.text-input{background:#fff;border-color:#d8e2ed;color:#253951}
+.filter-chip{background:#fff;border-color:#dce5ee;color:#5c7086}
+.filter-chip.selected{background:#eaf1fd;border-color:#a8c1e6;color:#225a9b}
+.activity-card{border:1px solid #e1e8f0}
+.activity-card:hover,.plan-card:hover{border-color:#a9c1e2;box-shadow:0 12px 26px #28476512}
+.activity-symbol{background:#edf3fc;color:#356caa}
+.activity-footer{border-top-color:#edf1f5}
+.activity-footer button,.inline-button{color:#2d69bb}
+.plan-tag,.panel-pill,.difficulty-chip{background:#edf3fc;color:#476a96;border:1px solid #e0e9f4}
+.custom-activity{border-color:#e2e9f1;background:#fff;color:#2c4058}
+.custom-activity:hover{border-color:#a9c1e2;background:#f7faff}
+.game-progress-label{color:#657a91}
+.game-panel{border:1px solid #dfe8f1}
+.game-instructions{color:#304760}
+.game-tip{color:#63778d}
+.choice-button,.tile,.dual-choice,.rotation-option,.route-cell,.reaction-pad{background:#f5f8fc;border-color:#cdd9e7;color:#253d59}
+.choice-button.selected,.tile.selected,.dual-choice.selected,.rotation-option.selected,.route-cell.selected{background:#e2edfd;border-color:#7ba4dc;color:#1f4d84}
+.tile.lit,.route-cell.active{background:#477fd3;color:#fff;border-color:#477fd3}
+.mini-cell{background:#e3eaf2}.mini-cell.filled{background:#5d8fd7;box-shadow:none}
+.summary-wrap{border-color:#dce6f0}
+.summary-wrap h1,.summary-metrics strong{color:#20344c}
+.dialog{background:#fff;border-color:#dce5ef;color:#21354b}
+.dialog-copy,.fine-print{color:#687c92}
+.toast{background:#20344b;color:#fff}
+.course-section{margin:8px 0 34px}
+.course-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.course-card{background:#fff;border:1px solid #dfe8f1;border-radius:15px;padding:18px;box-shadow:0 5px 18px #213a5208}
+.course-card h3{margin:13px 0 7px;color:#21384f;font-size:18px}
+.course-card p{margin:0;min-height:42px;color:#63778c;font-size:12px;line-height:1.55}
+.course-top,.course-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.course-top{font-size:10px;font-weight:800;letter-spacing:.7px;color:#617b9a;text-transform:uppercase}
+.course-progress{height:7px;background:#ebf0f6;border-radius:20px;margin:16px 0 12px;overflow:hidden}
+.course-progress span{display:block;height:100%;border-radius:20px;background:linear-gradient(90deg,#4c7ed5,#40a99e)}
+.course-bottom small{color:#63778c;font-size:10px}
+.level-map-section{margin:34px 0}
+.level-map-panel{padding:18px;overflow:hidden}
+.exercise-level-map{display:grid;gap:22px}
+.map-domain{display:grid;gap:9px}
+.map-domain-heading{display:flex;justify-content:space-between;align-items:center;color:#304860;font-size:13px}
+.map-domain-heading span,.map-exercise-name small{color:#8291a2;font-size:10px}
+.map-exercise-row{display:grid;grid-template-columns:minmax(130px,190px) 1fr;align-items:center;gap:14px}
+.map-exercise-name strong,.map-exercise-name small{display:block}
+.map-exercise-name strong{color:#344b64;font-size:11px}
+.map-levels{display:grid;grid-template-columns:repeat(10,minmax(23px,1fr));gap:5px}
+.map-level{height:27px;min-width:0;border:1px solid #dce5ef;border-radius:6px;background:#f6f8fb;color:#71849b;font-size:10px;font-weight:700;padding:0}
+.map-level.started{background:#e8f0fc;border-color:#c0d4ec;color:#3c6da8}
+.map-level.practiced{background:#cde1f9;border-color:#a7c7e9;color:#2d5f9b}
+.map-level.mastered{background:#a9d8ca;border-color:#84c5b2;color:#205f51}
+.map-level.selected{outline:2px solid #2f69c9;outline-offset:1px}
+.level-detail{margin-top:19px;padding:18px;border-radius:12px;background:#f5f8fc;border:1px solid #e2eaf2}
+.level-detail-title{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.level-detail-title small{color:#66809a;font-size:10px;font-weight:800;letter-spacing:1px}
+.level-detail-title h3{margin:5px 0 0;color:#263e56}
+.level-stat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:15px}
+.level-stat-grid>div{background:#fff;border:1px solid #e2eaf2;border-radius:9px;padding:11px}
+.level-stat-grid strong,.level-stat-grid small{display:block}
+.level-stat-grid strong{font-size:22px;color:#294e7d}
+.level-stat-grid small{font-size:10px;color:#71849a;margin-top:3px}
+.tone-buttons,.profile-grid,.task-list,.scene-grid,.peripheral-grid,.sweep-grid,.compare-pair,.logic-examples,.compass-card{max-width:660px;margin:16px auto}
+.tone-buttons{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.tone-choice{display:grid;justify-items:center;gap:5px;padding:13px 5px;border:1px solid #d6e2ee;border-radius:11px;background:#f6f9fc;color:#34516f}
+.tone-choice span{font-size:22px}.tone-choice:disabled{opacity:.45}.tone-choice.selected{background:#e4effe;border-color:#80a9d9}
+.scene-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;width:min(100%,360px)}
+.scene-cell{display:grid;place-items:center;aspect-ratio:1;border:1px solid #d7e2ed;border-radius:10px;background:#f6f9fc;font-size:28px;color:#2e4661}
+.scene-cell.selected{background:#e4effe;border-color:#80a9d9}
+.task-list{display:grid;gap:7px;max-width:480px}.task-list>div{display:flex;justify-content:space-between;background:#f6f9fc;border:1px solid #e2eaf2;border-radius:8px;padding:10px 14px;color:#344a61;font-size:12px}
+.peripheral-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;width:min(100%,330px)}
+.peripheral-cell{display:grid;place-items:center;aspect-ratio:1;border-radius:8px;background:#f2f6fb;border:1px solid #dce6ef;color:#344a61}
+.peripheral-cell.fixation{background:#dbe8f9;border-color:#a9c5e6}.peripheral-cell.signal{background:#4d89d5;color:#fff}
+.peripheral-cell.selected{background:#e2efff;border-color:#75a2d8}
+.compare-pair{display:grid;gap:16px;justify-items:center}.compare-pair strong{font-size:clamp(18px,3vw,30px);letter-spacing:4px;color:#274866;background:#f4f8fc;border:1px solid #dce7f1;padding:14px;border-radius:10px;max-width:100%;overflow-wrap:anywhere}
+.pitch-display{display:flex;justify-content:center;gap:45px;font-size:56px;color:#4d7db8}
+.sweep-grid{display:grid;grid-template-columns:repeat(9,1fr);gap:6px;background:#f5f8fc;border:1px solid #e1e9f1;border-radius:12px;padding:14px;max-width:560px}
+.sweep-grid span{font-size:18px;text-align:center;color:#385575}
+.profile-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.profile-card{display:grid;justify-items:center;gap:5px;background:#f5f8fc;border:1px solid #e1e9f1;border-radius:10px;padding:12px 6px;color:#344d67}
+.profile-card span{font-size:30px}.profile-card small{font-size:10px;color:#71849a}
+.expression-context,.dialogue-card{max-width:560px;margin:12px auto;padding:19px;background:#f5f8fc;border:1px solid #dfe8f1;border-radius:12px;color:#324960;line-height:1.6}
+.expression-choice{display:grid;justify-items:center;gap:5px;padding:10px 14px;background:#fff;border:1px solid #d7e2ed;border-radius:10px;color:#344d67}.expression-choice span{font-size:28px}.expression-choice small{font-size:10px;color:#657b90}.expression-choice.selected{background:#e8f1fd;border-color:#8bb0dc}
+.dialogue-card p{margin:7px 0;color:#334c65;font-size:13px}
+.number-sequence{font-size:30px;color:#2c5b91;letter-spacing:1px}
+.logic-examples{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.logic-examples>div{display:flex;gap:9px;align-items:center;padding:11px 14px;background:#f4f8fc;border:1px solid #e0e8f0;border-radius:8px;color:#32506d}
+.compass-card{display:grid;justify-items:center;gap:14px}.compass-grid{position:relative;width:210px;height:210px;border-radius:50%;border:2px solid #c7d7e7;background:radial-gradient(circle,#fff 0,#edf4fb 68%,#e3edf7 100%);display:grid;grid-template:1fr 1fr 1fr/1fr 1fr 1fr;align-items:center;justify-items:center;color:#4b6b8b;font-weight:800}
+.compass-grid:before,.compass-grid:after{content:'';position:absolute;background:#c4d5e6}.compass-grid:before{width:1px;height:78%;left:50%;top:11%}.compass-grid:after{height:1px;width:78%;left:11%;top:50%}
+.compass-grid span,.compass-landmark{z-index:1;background:#eef4fb;padding:4px 7px;border-radius:5px}.north{grid-area:1/2}.east{grid-area:2/3}.south{grid-area:3/2}.west{grid-area:2/1}.compass-landmark{grid-area:2/2;color:#3268a6}
+.compass-facing{font-size:12px;color:#526b83}
+@media(max-width:900px){.course-grid{grid-template-columns:1fr}.map-exercise-row{grid-template-columns:125px 1fr;gap:8px}.map-levels{gap:3px}.map-level{height:24px}}
+@media(max-width:560px){.level-detail-title{align-items:flex-start;flex-direction:column}.level-stat-grid{grid-template-columns:repeat(2,1fr)}.map-exercise-row{grid-template-columns:1fr;gap:6px}.map-exercise-name{display:flex;justify-content:space-between;align-items:center}.map-levels{grid-template-columns:repeat(10,minmax(19px,1fr))}.map-level{height:23px;font-size:9px}.sweep-grid{grid-template-columns:repeat(6,1fr)}.profile-grid{grid-template-columns:repeat(2,1fr)}}
+
+.activity-actions{display:flex;align-items:center;gap:8px}.activity-actions button{white-space:nowrap}.activity-actions .preview-action{background:transparent;color:#2f69c9;border:1px solid #d5e1ef;border-radius:8px;padding:9px 11px;font-size:11px}.exercise-preview-dialog{width:min(560px,calc(100vw - 28px));max-width:560px}.exercise-preview-dialog h2{margin:10px 0 7px}.exercise-preview-dialog label{display:block;font-size:11px;font-weight:800;color:#5e748c;margin:12px 0 5px}.preview-challenge{padding:14px 16px;margin:14px 0;background:#f3f7fc;border:1px solid #e1e9f1;border-radius:10px;color:#36516d;font-size:12px;line-height:1.6}.preview-history{margin:12px 0 17px}.preview-history>div{padding:10px}.preview-history strong{font-size:18px}

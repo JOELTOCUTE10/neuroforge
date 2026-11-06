@@ -1,23 +1,23 @@
 # NeuroForge
 
-An original, local-first cognitive-practice platform with 16 interactive activities, independently adaptive difficulty, guided and custom sessions, progress insights, exportable history, and optional Supabase accounts with cross-device session sync.
+An original, local-first cognitive-practice platform with 29 interactive activities, independently adaptive difficulty, guided and custom sessions, progress insights, exportable history, and optional Supabase accounts with cross-device session sync.
 
 NeuroForge is independent. It does not copy BrainHQ's proprietary source code, branding, interface assets, or exercises.
 
 ## Six training domains and current activities
 
-- **Memory:** Sequence Recall, Pattern Matrix, Word Recall, Working Memory N-Back
-- **Attention:** Focus Grid, Visual Search, Color Conflict, Dual Focus
-- **Brain Speed:** Reaction Lab, Number Sprint
-- **People Skills:** Context Signals
-- **Intelligence:** Rule Shift, Pattern Logic
-- **Navigation:** Direction Span, Mental Rotation, Route Map Recall
+- **Memory (7):** Sequence Recall, Pattern Matrix, Word Recall, Working Memory N-Back, Tone Sequence, Scene Snapshot, Task Recall.
+- **Attention (5):** Focus Grid, Visual Search, Color Conflict, Dual Focus, Peripheral Watch.
+- **Brain Speed (5):** Reaction Lab, Number Sprint, Quick Compare, Pitch Match, Rapid Sweep.
+- **People Skills (4):** Context Signals, Profile Recall, Expression Cues, Conversation Clues.
+- **Intelligence (4):** Rule Shift, Pattern Logic, Number Weave, Logic Lab.
+- **Navigation (4):** Direction Span, Mental Rotation, Route Map Recall, Landmark Compass.
 
-The library uses six canonical domains. Older saved sessions are grouped by their activity ID so earlier Spatial, Speed, Reasoning, and Flexibility records still appear under the updated domain labels.
+All 29 activities have individual play and scoring handlers. A listed activity is not presented as clinical assessment or validated cognitive training. Older saved sessions retain their activity IDs and are grouped under the current six domains.
 
 ## Training and progression
 
-Every activity has its own Level (1–10) and five within-level challenge stages. Sequence Recall increases sequence load and presentation pace; Pattern Matrix and Word Recall shorten study time while increasing memory load; Working Memory N-Back advances from 2-back toward 4-back; Focus Grid and Visual Search add more items; Color Conflict adds more conflicting stimuli; Reaction Lab tightens the response window; Number Sprint introduces harder operations; Mental Rotation increases shape complexity; and Dual Focus adds distractors.
+Each activity has a saved Level (1–10) and five within-level stages. During a five-round session, a second challenge tier can adjust in real time: two consecutive rounds at or above 85% raise it by one step; two consecutive rounds below 50% ease it by one step. The adjustment path is saved with the session. This within-session staircase is a product rule, not a validated measurement. Sequence Recall increases sequence load and presentation pace; Pattern Matrix and Word Recall shorten study time while increasing memory load; Working Memory N-Back advances from 2-back toward 4-back; Focus Grid and Visual Search add more items; Color Conflict adds more conflicting stimuli; Reaction Lab tightens the response window; Number Sprint introduces harder operations; Mental Rotation increases shape complexity; and Dual Focus adds distractors.
 
 Progression uses that activity's own saved accuracy history:
 
@@ -31,9 +31,11 @@ These are product difficulty rules, not validated cognitive measurements. They u
 
 ## Features
 
-- Five-round sessions with activity-specific scoring and completion checks.
-- Sixteen original activities across Memory, Attention, Brain Speed, People Skills, Intelligence, and Navigation, including variable-lag N-Back, Dual Focus, Mental Rotation, Context Signals, and Route Map Recall.
-- Balanced, memory, focus, speed, and flexibility plans, plus a custom session builder for one to eight activities.
+- 29 original, playable activities across all six domains, with their own task, instructions, scoring and difficulty parameters. Each library card offers a level preview before starting.
+- A history-informed Personal Trainer that recommends one activity in each domain based on recency, recent personal scores and practice frequency.
+- Seven self-paced 12-session courses, including one balanced cross-domain course. Course progress is attached to saved sessions and can be resumed or reviewed.
+- Focused daily rotations, memory, attention, speed, intelligence and navigation plans, plus a custom session builder for one to eight activities.
+- An interactive 10-level exercise map and level-preview panel. Preview any activity at a selected level, inspect the task challenge and personal baseline/best/average/attempts, then start that level. No population percentiles are fabricated.
 - Activity search and skill-area filters.
 - Daily practice goal, weekly minutes chart, streak, total sessions, and average accuracy.
 - Recent-session accuracy trend and practice recommendations based on the user's own activity results.
@@ -71,6 +73,8 @@ The repository includes a GitHub Actions workflow at .github/workflows/pages.yml
 Run: node --test tests/smoke.test.mjs
 
 ## Limitations and evidence
+
+The course library and level map provide structured practice and personal history; they do not reproduce BrainHQ content or guarantee equivalent research validation. Browser-level playthrough testing and live account testing are still required before describing the release as production-grade.
 
 Scores describe performance on NeuroForge activities. They are not IQ scores, clinical assessments, diagnoses, or evidence that training transfers to everyday cognition. NeuroForge has not been clinically validated. The adaptive system adjusts app difficulty from activity results; it does not measure general intelligence or establish real-world cognitive improvement. Cloud sign-in and synchronization still require real-browser testing against the configured Supabase Auth redirect settings.
 

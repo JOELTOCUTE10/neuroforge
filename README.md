@@ -81,7 +81,7 @@ Scores describe performance on NeuroForge activities. They are not IQ scores, cl
 
 ## Cognitive development blueprint
 
-See [docs/COGNITIVE_DEVELOPMENT_BLUEPRINT.md](docs/COGNITIVE_DEVELOPMENT_BLUEPRINT.md) for the full product and scientific architecture, and [docs/SCIENTIFIC_EVIDENCE_REGISTER.md](docs/SCIENTIFIC_EVIDENCE_REGISTER.md) for sources, findings, limitations and product implications. The blueprint separates established cognitive-ability frameworks from executive control, applied thinking skills, learning methods and cognitive-health support. It prioritizes measurement integrity and transfer testing before broad cognitive-improvement claims.
+See [docs/COGNITIVE_DEVELOPMENT_BLUEPRINT.md](docs/COGNITIVE_DEVELOPMENT_BLUEPRINT.md) for the full product and scientific architecture, [docs/SCIENTIFIC_EVIDENCE_REGISTER.md](docs/SCIENTIFIC_EVIDENCE_REGISTER.md) for sources, findings, limitations and product implications, and [docs/reviews/2026-11-06.md](docs/reviews/2026-11-06.md) for the latest dated research review. The blueprint separates established cognitive-ability frameworks from executive control, applied thinking skills, learning methods and cognitive-health support. It prioritizes measurement integrity and transfer testing before broad cognitive-improvement claims.
 
 ## Feature-parity development roadmap
 

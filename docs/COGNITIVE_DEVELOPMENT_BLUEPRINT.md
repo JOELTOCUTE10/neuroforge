@@ -91,6 +91,8 @@ These are learning methods, not additional forms of intelligence. Their effectiv
 
 Sleep, physical activity and general well-being can affect attention, learning and cognitive performance. They should be optional educational guidance, not gamified intelligence scores or medical advice. For adolescent users, the CDC summarizes the recommendation of 8–10 hours of sleep per night for ages 13–18. An umbrella review of exercise research found benefits for general cognition, memory and executive function across a very large body of reviews and trials. NeuroForge should encourage healthy, age-appropriate habits without prescribing intense exercise, restricting food, or implying that an individual is deficient.
 
+**Mindfulness guardrail:** A pre-registered meta-analysis published 6 November 2026 combined 66 studies of single-session mindfulness inductions and found only a very small immediate executive-function effect (g = 0.09); working-memory and cognitive-flexibility subgroup effects were not statistically significant, and the authors judged practical relevance limited. Most samples were non-clinical, but the review did not establish an adolescent-specific benefit. If NeuroForge includes mindfulness, keep it optional and non-scored as a pause or reflection feature; do not present it as a major executive-function training method or a quick intelligence boost. See Evidence Register source 14.
+
 ## 3. Evidence labels and claim rules
 
 Every ability page, exercise and training plan must show an evidence label. Evidence for a construct's existence or measurement is not the same as evidence that a particular app exercise improves it.

@@ -1,6 +1,6 @@
 # NeuroForge Scientific Evidence Register
 
-**Last reviewed:** 2026-11-06  
+**Last reviewed:** 2026-11-06 (same-day addendum)  
 **Purpose:** Record the research basis and limitations behind NeuroForge product decisions. This is a working evidence register, not a systematic review or a claim that NeuroForge itself has been validated.
 
 ## How to read this register
@@ -139,3 +139,13 @@
 ## Maintenance policy
 
 Review this register before adding new training claims, at least once per major release, and whenever a source is superseded or materially challenged. New evidence should be logged with population, method, outcomes, limitations and the exact product decision it changes. Do not upgrade a feature's evidence label based solely on a single small study or vendor marketing.
+
+### 14. Brief mindfulness inductions and executive function
+
+- **Source:** Shi, K., Wimmer, L., Calia, C., et al. (2026). *Acute Effects of Brief Mindfulness Inductions on Executive Function Performance: A Systematic Review and Three-Level Meta-Analysis*. Neuropsychology Review. Published 6 November 2026.
+- **Link:** https://doi.org/10.1007/s11065-026-09714-9
+- **Type:** Pre-registered systematic review and three-level meta-analysis of 66 studies, 187 effect sizes, 2,503 mindfulness-condition participants and 2,511 control-condition participants. The intervention was a single brief mindfulness induction with immediate task outcomes, not a long-term cognitive-training programme.
+- **Finding:** Overall acute executive-function effect was small (g = 0.09, 95% CI [0.03, 0.16]). The inhibitory-control estimate was small and statistically significant; working-memory and cognitive-flexibility estimates did not reach significance. No statistically significant differences between the three executive-function components were established. The non-clinical-sample estimate was also small (g = 0.08, 95% CI [0.01, 0.15]).
+- **Population and applicability:** Most studies were non-clinical (58/66); the review did not provide a reliable adolescent-specific efficacy estimate. Age moderation was not statistically significant, but moderator analyses were likely underpowered. Results should not be treated as proof of equivalent effects at every age.
+- **Limitations:** Heterogeneity was substantial. Only 23 studies included a state-mindfulness manipulation check and 19 supplied valid check data; four studies were rated high risk of bias and 84.85% had some risk-of-bias concerns, primarily around lack of preregistration. The review examined acute, same-session effects, not durable learning or transfer. The authors judged practical relevance limited.
+- **Design implication:** Do not market a short mindfulness exercise as a substantial executive-function or intelligence booster. It may be offered, if at all, as an optional non-scored pause or reflection activity, clearly separated from cognitive training claims. Do not infer that this acute meta-analysis proves or disproves the effects of multi-session mindfulness programmes.
